@@ -1,1 +1,1 @@
-# compartido: esto es un leeme , me estás leyendo?
+# compartido
