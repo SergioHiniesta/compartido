@@ -1,44 +1,48 @@
 import './Avatar.css'
-import {useState} from 'react';
-import PropTypes  from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-const Avatar =({ id, name = "👷‍♀️", size }) => {
+const Avatar = ({ id, name = '👷‍♀️', size }) => {
   // Si se quiere ver que props recibe
-  //console.log({props});
+  // console.log({props});
 
-  const [enabled, setEnabled] = useState(true);
-  const src = `https://randomuser.me/api/portraits/women/${id}.jpg`;
+  const [enabled, setEnabled] = useState(true)
+  const src = `https://randomuser.me/api/portraits/women/${id}.jpg`
 
-  let pictureClassName = "";
-  if (size === "small") {
-    pictureClassName = "is-small";
-  } else if (size === "large") {
-    pictureClassName = "is-large";
+  let pictureClassName = ''
+  if (size === 'small') {
+    pictureClassName = 'is-small'
+  } else if (size === 'large') {
+    pictureClassName = 'is-large'
   }
-  
-  const imgClassName = enabled ? "" : "disabled";
 
+  const imgClassName = enabled ? '' : 'disabled'
 
   return (
+    <>
+
     <picture className={pictureClassName}>
-      {id ? (
-        <img alt=''
+      {id
+        ? (
+        <img
+          alt=""
           onClick={() => {
-            setEnabled(!enabled);
+            setEnabled(!enabled)
           }}
           className={imgClassName}
           src={src}
         />
-      ) : (
+          )
+        : (
         <i>Sin imagen</i>
-      )}
-      <strong>{enabled ? name : "Desactivada"}</strong>
+          )}
+      <strong>{enabled ? name : 'Desactivada'}</strong>
     </picture>
-  );
+  </>
+  )
 }
 Avatar.propTypes = {
   size: PropTypes.string
 }
 
-
-export default Avatar;
+export default Avatar

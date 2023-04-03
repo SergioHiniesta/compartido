@@ -1,5 +1,6 @@
+import React from 'react'
 
-const Note = ({content, date}) => {
+const Note = ({ content, date }) => {
   return (
     <div>
         <p>{content}</p>
